@@ -1,0 +1,160 @@
+import java.awt.*;
+import javax.swing.*;
+
+class Ventana extends JFrame{
+	GridBagLayout gbl = new GridBagLayout() ;
+	GridBagConstraints gbc = new GridBagConstraints();
+	
+	public Ventana() {
+		crearComponentes();
+	}
+	public void crearComponentes() {
+		getContentPane().setLayout(gbl);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setTitle("Ejemplo GridBagLayout");
+		setLocationRelativeTo(null);
+		setVisible(true);
+		//==============================================================
+		JLabel nom = new JLabel("The Classic From includes al visible field   ");
+			asignaCoordenadas(nom, 0,0,3,1);
+		
+		JLabel nom1 = new JLabel(" for this list");
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			asignaCoordenadas(nom1, 0,1,2,1);	
+		
+		JLabel nom3 = new JLabel("From Option");
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			nom3.setFont(new Font("Arial", 20, 16));
+			asignaCoordenadas(nom3, 0,3,2,1);
+		
+		JLabel nom5 = new JLabel("Include the following:");
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			asignaCoordenadas(nom5, 0,4,2,1);
+			
+		JCheckBox num1 = new JCheckBox("a title for your from");
+			num1.setFont(new Font("Arial", 6, 10));
+			asignaCoordenadas(num1, 0,5,1,1);
+			
+		JTextArea nom4 = new JTextArea("Subcribe to our mailing list");
+			nom4.setLineWrap(true);
+			nom4.setWrapStyleWord(true);
+			nom4.setFont(new Font("Arial", 6, 10));
+			asignaCoordenadas(nom4, 0,6,2,1);
+		
+		ButtonGroup bg = new ButtonGroup();
+			JRadioButton r1 = new JRadioButton("only required fields");
+			bg.add(r1);
+			asignaCoordenadas(r1, 0,8,2,1);
+			JRadioButton r2 = new JRadioButton("all fields");
+			bg.add(r2);
+			asignaCoordenadas(r2, 0,9,2,1);
+			
+		JCheckBox num3 = new JCheckBox("interets group fields");
+			num3.setFont(new Font("Arial", 6, 10));
+			asignaCoordenadas(num3, 0,13,1,1);
+		
+		JCheckBox num4 = new JCheckBox("requied field indicators");
+			num4.setFont(new Font("Arial", 6, 10));
+			asignaCoordenadas(num4, 0,14,1,1);
+		//==============================================================
+		JLabel nom6 = new JLabel("Set form width");
+			asignaCoordenadas(nom6, 0,16,2,1);
+			
+		JTextArea nom7 = new JTextArea();
+			nom7.setLineWrap(true);
+			nom7.setWrapStyleWord(true);
+			nom7.setFont(new Font("Arial", 6, 10));
+			asignaCoordenadas(nom7, 0,17,2,1);
+			
+		JLabel nom8 = new JLabel("Enahnce your from");
+			asignaCoordenadas(nom8, 0,19,2,1);
+			
+		JCheckBox nu1 = new JCheckBox("enable evil popup mode");
+			nu1.setFont(new Font("Arial", 6, 10));
+			asignaCoordenadas(nu1, 0,20,1,1);
+		JCheckBox nu2 = new JCheckBox("disable all JavaScript");
+			nu2.setFont(new Font("Arial", 6, 10));
+			asignaCoordenadas(nu2, 0,21,1,1);
+		JCheckBox nu3 = new JCheckBox("Include archive link");
+			nu3.setFont(new Font("Arial", 6, 10));
+			asignaCoordenadas(nu3, 0,22,1,1);
+		JCheckBox nu4 = new JCheckBox("Include MonkeyRewards link");
+			nu4.setFont(new Font("Arial", 6, 10));
+			asignaCoordenadas(nu4, 0,23,1,1);
+		//=============================================================
+		JPanel panel1 = new JPanel(new FlowLayout());
+			panel1.setPreferredSize(new Dimension(250, 200));
+			panel1.setBorder(BorderFactory.createEtchedBorder());
+		JLabel p = new JLabel("Preview");
+			asignaCoordenadas(p,3,0,1,1);
+		
+		JLabel pa = new JLabel("Email Address:");
+			gbc.fill = GridBagConstraints.NONE;
+			asignaCoordenadas(pa, 3,2,1,1);
+		JTextField pa1 = new JTextField(20);
+			asignaCoordenadas(pa1, 3,3,2,1);
+			
+		JLabel pa2 = new JLabel("First Name:");
+			gbc.fill = GridBagConstraints.WEST;
+			asignaCoordenadas(pa2, 3,5,1,1);
+		JTextField pa3 = new JTextField(20);
+			asignaCoordenadas(pa3, 3,6,2,1);
+			
+		JLabel pa4 = new JLabel("Last Name:");
+			gbc.fill = GridBagConstraints.NONE;
+			asignaCoordenadas(pa4, 3,7,1,1);
+		JTextField pa5 = new JTextField(20);
+			asignaCoordenadas(pa5, 3,8,2,1);
+			
+		JButton btnS = new JButton("Subscribe");
+			asignaCoordenadas(btnS, 3,9,2,1 );
+	
+			gbc.gridx = 3;
+			gbc.gridy = 1;
+			gbc.gridwidth = 4;
+			gbc.gridheight = 12;
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			gbl.setConstraints(panel1, gbc);
+		add(panel1);
+		//=====================================================
+		JPanel panel2 = new JPanel(new FlowLayout());
+			panel2.setPreferredSize(new Dimension(250, 100));
+			panel2.setBorder(BorderFactory.createEtchedBorder());
+			
+		JLabel p1 = new JLabel("Copy/paste onto your site");
+			asignaCoordenadas(p1,3,13,1,1);
+			
+			String sistema[] = {"wdsa","wqdas","dsad","asdf","fsaf","eafs"};
+			JList lisS = new JList<>(sistema);
+		JScrollPane scroll = new JScrollPane(lisS);
+			lisS.setVisibleRowCount(4);
+			asignaCoordenadas(scroll,3,14,4,8);
+			gbc.gridx = 3;
+			gbc.gridy = 14;
+			gbc.gridwidth = 4;
+			gbc.gridheight = 8;
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			gbl.setConstraints(panel2, gbc);
+			add(panel2);
+	}
+	
+	public void asignaCoordenadas(JComponent com,int x, int y, int h, int v) {
+		gbc.gridx = x;
+		gbc.gridy = y;
+		gbc.gridwidth = h;
+		gbc.gridheight = v;
+		gbl.setConstraints(com, gbc);
+		add(com);
+	}
+}
+public class Interfaz_2 {
+	public static void main(String[] args) {
+			SwingUtilities.invokeLater(new Runnable() {
+				@Override
+				public void run() {
+					new Ventana();
+				}
+				
+			});
+	}
+}
